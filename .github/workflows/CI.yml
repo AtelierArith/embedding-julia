@@ -37,6 +37,6 @@ jobs:
           arch: ${{ matrix.arch }}
       - uses: julia-actions/cache@v1
       - name: Run hello
-        run: cd hello && bash build.sh
+        run: cd hello && bash run.sh
       - name: Run complicatedexamples
-        run: cd complicatedexamples && bash build.sh
+        run: cd complicatedexamples && bash run.sh
