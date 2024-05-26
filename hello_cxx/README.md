@@ -1,5 +1,5 @@
 ```sh
-$ bash build.sh
+$ bash run.sh
 -- Found Julia executable: /Users/atelier/.juliaup/bin/julia
 -- Julia_VERSION_STRING: 1.10.3
 -- Julia_INCLUDE_DIRS:   /Users/atelier/.julia/juliaup/julia-1.10.3+0.x64.apple.darwin14/include/julia

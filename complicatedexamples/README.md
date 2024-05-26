@@ -1,5 +1,5 @@
 ```sh
-$ bash build.sh
+$ bash run.sh
 -- The C compiler identification is AppleClang 15.0.0.15000309
 -- The CXX compiler identification is AppleClang 15.0.0.15000309
 -- Detecting C compiler ABI info
