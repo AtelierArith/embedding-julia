@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <vector>
 
 #include <julia.h>
@@ -17,7 +18,10 @@ int main(int argc, char *argv[])
     jl_eval_string("using Pkg; Pkg.add(\"Example\")");
     jl_eval_string("using Example");
 
-    jl_value_t *ret = jl_eval_string("hello(\"World\")");
+    jl_function_t* hello = jl_get_function(jl_main_module, "hello");
+    std::string msg = "World";
+    jl_value_t *jl_input = (jl_value_t*)jl_cstr_to_string(msg.c_str());
+    jl_value_t *ret = jl_call1(hello, jl_input);
     if (jl_is_string(ret)){
         const char *c_str = jl_string_ptr(ret);
         std::string s(c_str);
