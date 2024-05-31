@@ -52,6 +52,34 @@ int main(int argc, char *argv[])
     for(double x : w) {
         std::cout << x << std::endl;
     }
+
+    jl_eval_string("struct MyType{T}; p::T; q::T; end");
+
+    jl_value_t *mt = jl_eval_string("MyType{Float64}(1.2, 2.4)");
+    std::string field_name = "p";
+    ret = jl_get_field(mt, field_name.c_str());
+    if (jl_typeis(ret, jl_float64_type)){
+        double d = jl_unbox_float64(ret);
+        std::cout << d << std::endl;
+    }
+    field_name = "q";
+    ret = jl_get_field(mt, field_name.c_str());
+    if (jl_typeis(ret, jl_float64_type)){
+        double d = jl_unbox_float64(ret);
+        std::cout << d << std::endl;
+    }
+
+    jl_value_t *MyType = jl_eval_string("MyType");
+    jl_value_t *p = jl_box_float64(1.2);
+    jl_value_t *q = jl_box_float64(99.9);
+    jl_value_t *MyTypeFloat64 = jl_apply_type1(MyType, (jl_value_t*)jl_float64_type);
+    mt = jl_call2(MyTypeFloat64, p, q);
+    ret = jl_get_field(mt, field_name.c_str());
+    if (jl_typeis(ret, jl_float64_type)){
+        double d = jl_unbox_float64(ret);
+        std::cout << d << std::endl;
+    }
+
     /* strongly recommended: notify Julia that the
          program is about to terminate. this allows
          Julia time to cleanup pending write requests
