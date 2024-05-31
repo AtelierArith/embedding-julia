@@ -42,5 +42,7 @@ jobs:
         run: cd hello_gcc && bash run.sh
       - name: Run hello_cxx
         run: cd hello_cxx && bash run.sh
+      - name: Run hello_world
+        run: cd hello_world && bash run.sh
       - name: Run complicatedexamples
         run: cd complicatedexamples && bash run.sh
