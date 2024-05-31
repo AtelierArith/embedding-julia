@@ -1,5 +1,3 @@
-// https://docs.julialang.org/en/v1/manual/embedding/
-
 #include <julia.h>
 JULIA_DEFINE_FAST_TLS // only define this once, in an executable (not in a shared library) if you want fast code.
 
