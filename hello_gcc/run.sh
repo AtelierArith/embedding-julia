@@ -1,4 +1,4 @@
 # Get Julia installation paths
-cmake -S . -B ./build -DCMAKE_BUILD_TYPE=Release
-cmake --build ./build --config Release -j `nproc`
-./build/hello
+JULIA_DIR=`julia -e 'print(dirname(Sys.BINDIR))'`
+gcc -o ./main -fPIC -I$JULIA_DIR/include/julia -L$JULIA_DIR/lib -Wl,-rpath,$JULIA_DIR/lib main.c -ljulia
+./main
