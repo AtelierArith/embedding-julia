@@ -38,6 +38,8 @@ jobs:
       - uses: julia-actions/cache@v1
       - name: Run hello_gcc
         run: cd hello_gcc && bash run.sh
+      - name: Run hello_gcc_cmake
+        run: cd hello_gcc && bash run.sh
       - name: Run hello_cxx
         run: cd hello_cxx && bash run.sh
       - name: Run complicatedexamples
