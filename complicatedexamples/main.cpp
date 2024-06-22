@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
     jl_init();
 
     /* run Julia commands */
+    jl_eval_string("using Pkg; Pkg.activate(\".\")");
     jl_eval_string("using Pkg; Pkg.add(\"Example\")");
     jl_eval_string("using Example");
 
